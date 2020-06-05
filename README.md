@@ -2,6 +2,8 @@
 Automatic block stranger message request unless approved by owner.
 The script will automatically move message from people not in the "safeusers" to archive and auto reply a pre-defined message.
 
+This script make use of Telethon library and is heavily motivated by the auto reply feature written by https://medium.com/@jiayu./automatic-replies-for-telegram-85075f28321
+
 ## Installation steps:
 # Hosting on own machine
 1. Install Python3.
