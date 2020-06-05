@@ -18,17 +18,21 @@ if __name__ == '__main__':
 
 
     @client.on(events.NewMessage(incoming=True))
-    #@client.on(events.NewMessage(incoming=True))
     async def handle_new_message(event):
         if event.is_private:  # only auto-reply to private chats
-            #await event.respond(message)
-            dialogs = await client.get_dialogs()
-            first = dialogs[5] #replace 5 with your number of pinned messages
-
+            from_ = await event.client.get_entity(event.from_id)  # this lookup will be cached by telethon
+            if not from_.bot:  # don't auto-reply to bots
+                dialogs = await client.get_dialogs()
+                first = dialogs[5] #replace 5 with your number of pinned messages
+                #print(first.title)
             if first.title not in safeusers:
                 await event.respond(message)
                 await client.edit_folder(dialogs[5], 1) #add chat to archive, 0 to unarchive
                 #await client.delete_dialog(dialogs[5]) #delete chat number 6
+
+                #print(time.asctime(), '-', event.message)  # optionally log time and message
+                #time.sleep(1)  # pause for 1 second to rate-limit automatic replies
+                #await event.respond(message)
 
 
 
