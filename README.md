@@ -12,5 +12,5 @@ This script make use of Telethon library and is heavily motivated by the auto re
 4. Go to API development tool.
 5. Create an new app by giving it an app title and a short name.
 6. You will be directed to another page with "App api_id" and "App api_hash".
-7. Replace the "api_id", "api_hash", "phone", "session_file" and "safeusers" in the script.
+7. Replace the "api_id", "api_hash", "phone", "session_file", "safeusers" and the number in the square box([]) in line 26 and 30 with the number of pinned messages you have in your Telegram in the script.
 8. Run the script.
