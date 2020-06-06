@@ -27,6 +27,7 @@ if __name__ == '__main__':
                 #print(first.title)
             if first.title not in safeusers:
                 await event.respond(message)
+                #await client.send_file(first.id, 'C:/image.jpg') #uncomment to reply with a photo
                 await client.edit_folder(dialogs[5], 1) #add chat to archive, 0 to unarchive
                 #await client.delete_dialog(dialogs[5]) #delete chat number 6
 
