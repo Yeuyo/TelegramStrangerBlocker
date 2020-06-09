@@ -6,7 +6,7 @@ This script make use of Telethon library and is heavily motivated by the auto re
 
 ## Installation steps:
 # Hosting on own machine
-1. Install Python3.
+1. Download and install Python3 from https://www.python.org/downloads/.
 2. Install Telethon by typing "python3 -m pip install telethon" on command prompt or terminal (Windows/Linux).
 3. Visit https://my.telegram.org/auth and login.
 4. Go to API development tool.
