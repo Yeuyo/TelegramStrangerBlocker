@@ -20,9 +20,10 @@ if __name__ == '__main__':
 
     @client.on(events.NewMessage(incoming=True))
     async def handle_new_message(event):
-        if event.is_private:  # only auto-reply to private chats
-            from_ = await event.client.get_entity(event.from_id)  # this lookup will be cached by telethon
-            if not from_.bot and not from_.mutual_contact:  # don't auto-reply to bots and mutual contacts
+        if event.is_private and not hasattr(event._chat, 'bot'):  # only auto-reply to private chats and not bots
+            #await event.respond('.') # may need this line for the next line to work
+            from_ = await event.client.get_entity(event.message.from_id)  # this lookup will be cached by telethon
+            if not from_.mutual_contact:  # don't auto-reply to mutual contacts
                 dialogs = await client.get_dialogs()
                 first = dialogs[number_of_pinned_chat]
                 #print(first.title)
